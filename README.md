@@ -30,3 +30,11 @@ This project is a powerful full-stack CRUD application that utilizes **gRPC** fo
 - **TypeScript**: Set up TypeScript with Node.js.
 - **XAMPP**: Download and install XAMPP for the backend server.
 - **Ngrok**: Download Ngrok to expose your local environment.
+
+### Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-url>
+    cd <project-folder>
+    ```
