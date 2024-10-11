@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package user;
+
+// Define the gRPC service
+service UserService {
+  rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse);
+  rpc DeleteUser (User) returns (GeneralResponse);
+  rpc UpdateUser (User) returns (GeneralResponse);
+  rpc GetAllUsers (Empty) returns (GetAllUsersResponse);
+
+  //server-stream
+  rpc ReceiveMessageStream(StreamInput) returns (stream ChatMessage);
+
+  //client-stream
+  rpc SendMessageStream(stream ChatMessage) returns (StreamOutput);
+
+  // bi directional
+  rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}
+
+message StreamInput {
+  string message = 1;
+}
+
+message StreamOutput {
+  string message = 1;
+}
+
+message ChatMessage {
+  string message = 1;
+  string text = 2;
+}
+
+
+message GeneralResponse {
+  string message = 1;
+}
+
+// Request and response for RegisterUser
+message RegisterUserRequest {
+  string username = 1;
+  string password = 2;
+  bool is_active = 3;
+}
+
+message RegisterUserResponse {
+  string message = 1;
+
+}
+
+// Request and response for LoginUser
+message LoginUserRequest {
+  string username = 1;
+  string password = 2;
+}
+
+
+
+// Response for GetAllUsers
+message GetAllUsersResponse {
+  repeated User users = 1;
+}
+
+// User message
+message User {
+  string id = 1;
+  string username = 2;
+  string password = 3;
+  bool is_active = 4;
+}
+
+// Empty message for GetAllUsers request
+message Empty {}
