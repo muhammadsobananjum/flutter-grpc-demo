@@ -35,6 +35,6 @@ This project is a powerful full-stack CRUD application that utilizes **gRPC** fo
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository-url>
-    cd <project-folder>
+    git clone [<repository-url>](https://github.com/muhammadsobananjum/flutter-grpc-demo)
+    cd flutter-grpc-demo
     ```
